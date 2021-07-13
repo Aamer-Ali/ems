@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <h2>Question Details</h2>
+       <h3> {{question.title}}</h3>
+       {% for choice in question.choices %}
+       <p>{{choice.text}} {{ choice.votes }}</p>
+       {% empty %}
+       <p>There is no choice available for this question</p>
+        {% endfor %}
+       <p>Question Created by {{question.created_by.first_name}}</p>
+    {% endblock %}
+</body>
+</html>
